@@ -1,5 +1,5 @@
 # GTFOBins-Explorer
-Terminal searcher in GTFOBins web.
+Terminal explorer in GTFOBins web.
 
 Usage: 
 ```sh 
