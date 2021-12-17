@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Terminal GTFObins-explorer by creep33 
+
+
+# Colours
+declare -r redColour="\e[0;31m\033[1m"
+declare -r blueColour="\e[0;34m\033[1m"
+declare -r endColour="\033[0m\e[0m"
+declare -r greenColour="\e[0;32m\033[1m"
+declare -r whiteColour="\033[1;37m"
+
 ctrl_c()
 {
 	echo -e "\n\n[!] Saliendo...\n"
@@ -8,7 +18,9 @@ ctrl_c()
 
 Help()
 {
-	echo -e "\nUsage: ./GTFOBins-Explorer.sh [-f <path_to_file>] [<binary>]\n"
+	echo -e "Tool developed by: ${whiteColour}creep33${endColour}"
+	echo -e "\nUsage: ${greenColour}$0${endColour} [-f <path_to_file>] [<binary>]"
+	echo -e "When matchen binary: ${greenColour}$0${endColour} ${redColour}<binary>${endColour} ${blueColour}<option>${endColour}\n"
 	exit 1
 }
 
@@ -22,10 +34,19 @@ GTFOBins-explore()
 		if [ "$look_for_binary" = "$binary" ]
 		then
 			echo -e "\nMatched"
-			echo -e "Visit --> https://gtfobins.github.io/gtfobins/$binary/\n"
+			echo -e "Visit --> https://gtfobins.github.io/gtfobins/${redColour}$binary${endColour}/\n"
+			echo -e "Available options for ${redColour}$binary${endColour}:\n${blueColour}$(/bin/curl -s -X GET https://gtfobins.github.io/gtfobins/awk/ | html2text | /bin/grep \#\# | /bin/tr -d '\#')${endColour}\n"
+			echo -e "Use: ${greenColour}$0${endColour} ${redColour}$binary${endColour} ${blueColour}<option>${endColour}\n"
 		fi
 	done
 }
+
+
+GTFOBins-Display-Option()
+{
+	echo -e " $0 $1 $2"
+}
+
 
 GTFOBins-File-explorer()
 {
@@ -35,8 +56,8 @@ GTFOBins-File-explorer()
 		for binary in $GTFOBins_binaries;do
 			if [ "$looking_binary" = "$binary" ]
 			then
-				echo -e "\nMatched binary: $binary"
-				echo -e "Visit --> https://gtfobins.github.io/gtfobins/$binary/\n"
+				echo -e "\nMatched binary: ${redColour}$binary${endColour}"
+				echo -e "Visit --> https://gtfobins.github.io/gtfobins/${redColour}$binary${endColour}/\n"
 			fi
 		done
 	done
@@ -54,7 +75,7 @@ then
 	then
 		GTFOBins-File-explorer $2
 	else
-		Help
+		GTFOBins-Display-Option $1 $2
 	fi
 else
 	Help
