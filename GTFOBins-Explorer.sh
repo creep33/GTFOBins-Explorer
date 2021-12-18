@@ -35,7 +35,7 @@ GTFOBins-explore()
 		then
 			echo -e "\nMatched"
 			echo -e "Visit --> https://gtfobins.github.io/gtfobins/${redColour}$binary${endColour}/\n"
-			echo -e "Available options for ${redColour}$binary${endColour}:\n${blueColour}$(/bin/curl -s -X GET https://gtfobins.github.io/gtfobins/awk/ | html2text | /bin/grep \#\# | /bin/tr -d '\#')${endColour}\n"
+			echo -e "Available options for ${redColour}$binary${endColour}:\n${blueColour}$(/bin/curl -s -X GET https://gtfobins.github.io/gtfobins/$1/ | html2text | /bin/grep \#\# | /bin/tr -d '\#')${endColour}\n"
 			echo -e "Use: ${greenColour}$0${endColour} ${redColour}$binary${endColour} ${blueColour}<option>${endColour}\n"
 		fi
 	done
@@ -44,7 +44,13 @@ GTFOBins-explore()
 
 GTFOBins-Display-Option()
 {
-	echo -e " $0 $1 $2"
+	predelimiter=$(/bin/curl -s -X GET "https://gtfobins.github.io/gtfobins/$1/" | html2text | /bin/grep '\#\#' | /bin/grep -oP "^## $2$")
+	postdelimiter=$(/bin/curl -s -X GET "https://gtfobins.github.io/gtfobins/$1/" | html2text | /bin/grep '\#\#' | /bin/grep -A1 "^## $2$" | tail -n 1) # | /bin/awk '{print $3}' FS='##')
+
+	echo -e "La variable pre es: $predelimiter"
+	echo -e "La variable post es: $postdelimiter"
+
+	/bin/curl -s -X GET "https://gtfobins.github.io/gtfobins/$1/" | html2text | sed -n "/$predelimiter/,/$postdelimiter/p" | sed 's/\*   //g' | grep -v "$postdelimiter"
 }
 
 
