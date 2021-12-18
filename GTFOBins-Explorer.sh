@@ -45,12 +45,16 @@ GTFOBins-explore()
 GTFOBins-Display-Option()
 {
 	predelimiter=$(/bin/curl -s -X GET "https://gtfobins.github.io/gtfobins/$1/" | html2text | /bin/grep '\#\#' | /bin/grep -oP "^## $2$")
-	postdelimiter=$(/bin/curl -s -X GET "https://gtfobins.github.io/gtfobins/$1/" | html2text | /bin/grep '\#\#' | /bin/grep -A1 "^## $2$" | tail -n 1) # | /bin/awk '{print $3}' FS='##')
+	postdelimiter=$(/bin/curl -s -X GET "https://gtfobins.github.io/gtfobins/$1/" | html2text | /bin/grep '\#\#' | /bin/grep -A1 "^## $2$" | /bin/tail -n 1)
 
-	echo -e "La variable pre es: $predelimiter"
-	echo -e "La variable post es: $postdelimiter"
+	/bin/echo -e '\n'
 
-	/bin/curl -s -X GET "https://gtfobins.github.io/gtfobins/$1/" | html2text | sed -n "/$predelimiter/,/$postdelimiter/p" | sed 's/\*   //g' | grep -v "$postdelimiter"
+	if [ "$predelimiter" != "$postdelimiter" ]
+	then
+		/bin/curl -s -X GET "https://gtfobins.github.io/gtfobins/$1/" | html2text | /bin/sed -n "/$predelimiter/,/$postdelimiter/p" | /bin/sed 's/\*   //g' | /bin/grep -v "$postdelimiter"
+	else
+		/bin/curl -s -X GET "https://gtfobins.github.io/gtfobins/$1/" | html2text | /bin/sed -n "/$predelimiter/,/$postdelimiter/p" | /bin/sed 's/\*   //g'	
+	fi
 }
 
 
@@ -81,7 +85,7 @@ then
 	then
 		GTFOBins-File-explorer $2
 	else
-		GTFOBins-Display-Option $1 $2
+		GTFOBins-Display-Option $1 "$2"
 	fi
 else
 	Help
