@@ -3,6 +3,8 @@ Terminal explorer in GTFOBins web.
 
 Tool developed by: **creep33**
 
+Requirements: html2text
+
 Usage: 
 ```bash 
 Usage: ./GTFOBins-Explorer.sh [-f <path_to_file>] [<binary>]
