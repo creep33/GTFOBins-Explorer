@@ -4,6 +4,7 @@ Terminal explorer in GTFOBins web.
 Tool developed by: **creep33**
 
 Requirements: html2text
+[!] NOTE: Install it with pip2 (python2)
 
 Usage: 
 ```bash 
