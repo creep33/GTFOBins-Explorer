@@ -3,11 +3,16 @@ Terminal explorer in GTFOBins web.
 
 Tool developed by: **creep33**
 
+## Installation: 
 Requirements: html2text
 
 [!] NOTE: Install it with pip2 (python2)
 
-Usage: 
+```bash
+python2 -m pip install html2text
+```
+
+## Usage: 
 ```bash 
 Usage: ./GTFOBins-Explorer.sh [-f <path_to_file>] [<binary>]
 When matchen binary: ./GTFOBins-Explorer.sh <binary> <option>
