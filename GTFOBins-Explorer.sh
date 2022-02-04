@@ -20,7 +20,7 @@ Help()
 {
 	echo -e "Tool developed by: ${whiteColour}creep33${endColour}"
 	echo -e "\nUsage: ${greenColour}$0${endColour} [-f <path_to_file>] [<binary>]"
-	echo -e "When matchen binary: ${greenColour}$0${endColour} ${redColour}<binary>${endColour} ${blueColour}<option>${endColour}\n"
+	echo -e "When matched binary: ${greenColour}$0${endColour} ${redColour}<binary>${endColour} ${blueColour}<option>${endColour}\n"
 	exit 1
 }
 
