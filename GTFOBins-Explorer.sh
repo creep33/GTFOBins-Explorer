@@ -78,7 +78,12 @@ trap ctrl_c INT
 
 if [ $# == 1 ] 
 then
-	GTFOBins-explore $1
+	if [ $1 == "-h" ]
+	then
+		Help
+	else
+		GTFOBins-explore $1
+	fi
 elif [ $# == 2 ]
 then
 	if [ $1 == "-f" ]
