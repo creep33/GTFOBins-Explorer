@@ -67,7 +67,8 @@ GTFOBins-File-explorer()
 			if [ "$looking_binary" = "$binary" ]
 			then
 				echo -e "\nMatched binary: ${redColour}$binary${endColour}"
-				echo -e "Visit --> https://gtfobins.github.io/gtfobins/${redColour}$binary${endColour}/\n"
+				echo -e "Visit  -> https://gtfobins.github.io/gtfobins/${redColour}$binary${endColour}/"
+                                echo -e "Or use -> $0 ${redColour}$binary${endColour}\n"
 			fi
 		done
 	done
