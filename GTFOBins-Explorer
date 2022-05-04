@@ -44,10 +44,10 @@ GTFOBins-explore()
 
 GTFOBins-Display-Option()
 {
-	predelimiter=$(/bin/curl -s -X GET "https://gtfobins.github.io/gtfobins/$1/" | html2text | /bin/grep '\#\#' | /bin/grep -oP "^## $2$")
-	postdelimiter=$(/bin/curl -s -X GET "https://gtfobins.github.io/gtfobins/$1/" | html2text | /bin/grep '\#\#' | /bin/grep -A1 "^## $2$" | /bin/tail -n 1)
+	predelimiter=$(/bin/curl -s -X GET "https://gtfobins.github.io/gtfobins/$1/" | html2text | /bin/grep '\#\#' | /bin/grep -i -oP "^## $2$")
+	postdelimiter=$(/bin/curl -s -X GET "https://gtfobins.github.io/gtfobins/$1/" | html2text | /bin/grep '\#\#' | /bin/grep -i -A1 "^## $2$" | /bin/tail -n 1)
 
-	/bin/echo -e '\n'
+	/bin/echo
 
 	if [ "$predelimiter" != "$postdelimiter" ]
 	then

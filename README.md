@@ -3,7 +3,7 @@ Terminal explorer in GTFOBins web.
 
 Tool developed by: **creep33**
 
-## Installation: 
+## Requisites: 
 Requirements: html2text
 
 [!] NOTE: Install it with pip2 (python2)
@@ -11,6 +11,20 @@ Requirements: html2text
 ```bash
 python2 -m pip install html2text
 ```
+
+## Installatin:
+### Using AUR:
+```
+paru -S gtfobins-explorer-git
+```
+### Manual:
+```
+git clone https://github.com/creep33/GTFOBins-Explorer
+cd GTFOBins-Explorer 
+mv GTFOBins-Explorer /usr/bin/gtfobins
+
+```
+
 
 ## Usage: 
 ```bash 
