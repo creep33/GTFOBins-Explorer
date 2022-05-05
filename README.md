@@ -1,7 +1,7 @@
 # GTFOBins-Explorer
 Terminal explorer in GTFOBins web.
 
-Tool developed by: **creep33**
+Tool developed by: **creep33**.
 
 ## Requisites: 
 Requirements: html2text
