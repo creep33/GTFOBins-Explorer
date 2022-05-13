@@ -12,7 +12,9 @@ Requirements: html2text
 python2 -m pip install html2text
 ```
 
-## Installatin:
+## Installation:
+Use the ng version for arch, and the normal to the rest of distros.
+
 ### Using AUR:
 ```
 paru -S gtfobins-explorer-git
