@@ -30,8 +30,8 @@ mv GTFOBins-Explorer /usr/bin/gtfobins
 
 ## Usage: 
 ```bash 
-Usage: ./GTFOBins-Explorer.sh [-f <path_to_file>] [<binary>]
-When matchen binary: ./GTFOBins-Explorer.sh <binary> <option>
+Usage: gtfobins [-f <path_to_file>] [<binary>]
+When matchen binary: gtfobins <binary> <option>
 ```
 
 You can use the "-f" flag to input a list generated with the following command:
