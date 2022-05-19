@@ -37,5 +37,5 @@ When matchen binary: gtfobins <binary> <option>
 You can use the "-f" flag to input a list generated with the following command:
 
 ```bash
-find \-perm -4000 2>/dev/null > /tmp/filename
+find / \-perm -4000 2>/dev/null > /tmp/filename
 ```
